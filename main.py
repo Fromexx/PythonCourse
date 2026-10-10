@@ -1,15 +1,22 @@
-print("Enter two numbers: ")
-a = input()
-b = input()
+﻿def max_number(a, b):
+    if a > b:
+        return a
+    return b
 
-result = 0
-try:
-    result = int(a) / int(b)
-except ValueError:
-    print("Not a number")
-except ZeroDivisionError:
-    print("Division by zero")
-else:
-    print(result)
-finally:
-    print("Program ended")
+def empty_function():
+    pass
+
+def even_numbers(n):
+    for i in range(0, n + 1, 2):
+        yield i
+
+for i in even_numbers(10):
+    print(i)
+
+def test_max_number():
+    assert max_number(1, 2) == 2
+    assert max_number(3, 2) == 3
+    assert max_number(2, 2) == 2
+
+test_max_number()
+print("Тесты пройдены")
