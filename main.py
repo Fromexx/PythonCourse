@@ -15,9 +15,6 @@ def even_numbers(n):
         yield i
 
 
-for i in even_numbers(10):
-    print(i)
-
 def test_max_number():
     assert max_number(1, 2) == 2
     assert max_number(1.2, 3.2) == 3.2
@@ -25,6 +22,9 @@ def test_max_number():
     assert max_number(2, 2) == 2
     assert max_number(2, "rgrg") is None
 
+
+for i in even_numbers(10):
+    print(i)
 
 test_max_number()
 print("Тесты пройдены")
