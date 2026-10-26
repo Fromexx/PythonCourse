@@ -1,5 +1,9 @@
-﻿count = int(input("Введите начало отчета: "))
+﻿real_password = "admin"
 
-while count >= 0:
-    print(count)
-    count -= 1
+while True:
+    entered_password = input("Введите пароль: ")
+    if entered_password == real_password:
+        break
+    print("Неверно, повторите попытку")
+
+print("Вход разрешен!")
