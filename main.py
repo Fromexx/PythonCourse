@@ -1,9 +1,6 @@
 ﻿real_password = "admin"
+entered_password = ""
 
-while True:
+while entered_password != real_password:
     entered_password = input("Введите пароль: ")
-    if entered_password == real_password:
-        break
-    print("Неверно, повторите попытку")
-
-print("Вход разрешен!")
+    print("Вход разрешен!" if entered_password == real_password else "Неверно, повторите попытку")
