@@ -1,4 +1,4 @@
-﻿punctuation_marks = [',', '!', '?', '.']
+﻿punctuation_marks = [',', '!', '?', '.', '—', '<<', '»', '…', '`', '~', '@', '#', '$', '%', '^', '&', '*', '/', '"', '\'']
 vowel_letters = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я']
 
 def remove_punctuation_marks(word):
