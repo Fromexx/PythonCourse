@@ -1,8 +1,12 @@
 ﻿def calculate_average(grades):
+    if len(grades) == 0: return 0
+
     return sum(grades) / len(grades)
 
 
 def add_student(name, grades):
+    if len(grades) == 0: return
+
     students.append({"name": name, "grades": grades})
     calculate_class_average()
 
