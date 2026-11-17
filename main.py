@@ -1,32 +1,32 @@
 ﻿def calculate_average(grades):
-    if len(grades) == 0: return 0
+    if not grades: return 0
 
     return sum(grades) / len(grades)
 
 
-def add_student(name, grades):
+def add_student(students_list, name, grades):
     if len(grades) == 0: return
 
-    students.append({"name": name, "grades": grades})
-    calculate_class_average()
+    students_list.append({"name": name, "grades": grades})
+    calculate_class_average(students_list)
 
 
-def remove_student(student_index):
-    removed_student = students.pop(student_index)
-    calculate_class_average()
+def remove_student(students_list, student_index):
+    removed_student = students_list.pop(student_index)
+    calculate_class_average(students_list)
     return removed_student
 
 
-def calculate_class_average():
+def calculate_class_average(students_list):
     common_average = 0
 
-    for student in students:
+    for student in students_list:
         average = calculate_average(student["grades"])
         common_average += average
         print(
             f"Студент: {student["name"]}: средний балл: {average:.2f}, статус: {"Успешный" if average >= 75 else "Отстающий"}")
 
-    print(f"\nОбщий средний балл: {common_average / len(students):.2f}\n")
+    print(f"\nОбщий средний балл: {common_average / len(students_list):.2f}\n")
 
 
 students = [
@@ -36,10 +36,10 @@ students = [
     {"name": "Draco", "grades": [60, 75, 70]}
 ]
 
-calculate_class_average()
+calculate_class_average(students)
 
 print(f"Добавлен студент: Froms")
-add_student("Froms", [66, 100, 94])
+add_student(students, "Froms", [66, 100, 94])
 
 lowest_average = calculate_average(students[0]["grades"])
 lowest_average_index = 0
@@ -52,5 +52,5 @@ for i in range(1, len(students)):
         lowest_average_index = i
     if i == len(students) - 1:
         print("Удаление студента с самым низким средним баллом")
-        removed_student = remove_student(lowest_average_index)
+        removed_student = remove_student(students, lowest_average_index)
         print(f"Был удален студент: {removed_student['name']} (Средний балл: {lowest_average:.2f})")
