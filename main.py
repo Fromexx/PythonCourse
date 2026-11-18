@@ -1,17 +1,19 @@
 ﻿def calculate_average(grades):
-    if not grades: return 0
-
-    return sum(grades) / len(grades)
+    return sum(grades) / len(grades) if grades else 0
 
 
 def add_student(students_list, name, grades):
-    if len(grades) == 0: return
+    if not grades:
+        return
 
     students_list.append({"name": name, "grades": grades})
     calculate_class_average(students_list)
 
 
 def remove_student(students_list, student_index):
+    if student_index >= len(students_list):
+        return None
+
     removed_student = students_list.pop(student_index)
     calculate_class_average(students_list)
     return removed_student
